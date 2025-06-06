@@ -1,8 +1,24 @@
 <div class="container">
   <app-navbar class="navbar"></app-navbar>
+
   <div class="main-content">
-    <app-horloge-preview></app-horloge-preview>
-    <app-carte-preview></app-carte-preview>
-    <app-spotify-preview></app-spotify-preview>
+    <div class="top-bar">
+      <app-horloge-preview></app-horloge-preview>
+    </div>
+
+    <div class="content-area">
+      <div class="left-panel">
+        <app-car-preview></app-car-preview>
+      </div>
+
+      <div class="right-panel">
+        <div class="carte-panel">
+          <app-carte-preview></app-carte-preview>
+        </div>
+        <div class="spotify-panel">
+          <app-spotify-preview></app-spotify-preview>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

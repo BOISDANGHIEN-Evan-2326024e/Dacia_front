@@ -4,6 +4,7 @@ import {NavbarComponent} from '../navbar/navbar.component';
 import {HorlogePreviewComponent} from '../horloge-preview/horloge-preview.component';
 import {CartePreviewComponent} from '../carte-preview/carte-preview.component';
 import {SpotifyPreviewComponent} from '../spotify-preview/spotify-preview.component';
+import {CarPreviewComponent} from '../car-preview/car-preview.component';
 
 @Component({
   selector: 'app-accueil',
@@ -13,7 +14,8 @@ import {SpotifyPreviewComponent} from '../spotify-preview/spotify-preview.compon
     NavbarComponent,
     HorlogePreviewComponent,
     CartePreviewComponent,
-    SpotifyPreviewComponent
+    SpotifyPreviewComponent,
+    CarPreviewComponent
   ],
   styleUrls: ['./accueil.component.scss']
 })

@@ -1,15 +1,85 @@
+/* -------------- ACCUEIL (accueil.component.scss) -------------- */
+
+/* 1) S’assurer que body/html prennent 100% de la hauteur (si pas déjà fait) */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Conteneur principal */
 .container {
   display: flex;
-  height: 100vh;
+  height: 100vh;       /* tout l’écran en vertical */
+  width: 100%;
 }
+
+/* Navbar fixée à gauche */
 .navbar {
   width: 80px;
   background: #222;
+  flex-shrink: 0;      /* ne pas rapetisser */
 }
+
+/* Contenu juste à droite de la navbar */
 .main-content {
+  flex: 1;             /* occupe tout l’espace horizontal restant */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bandeau supérieur contenant l’horloge */
+.top-bar {
+  height: 100px;
+  padding: 10px 20px;
+  flex-shrink: 0;
+}
+
+/* Zone sous la barre d’horloge */
+.content-area {
+  flex: 1;             /* occupe tout l’espace vertical restant (sous la top-bar) */
+  display: flex;
+  padding: 20px;
+  gap: 20px;           /* espacement entre colonne gauche et droite */
+}
+
+/* -------------------- PARTIE GAUCHE -------------------- */
+/* CarPreview occupe toute la hauteur disponible */
+.left-panel {
+  flex: 2;             /* proportionnellement plus large que la colonne droite */
+  background-color: #eaeaea;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;    /* masque débordement canvas Three.js */
+}
+
+/* -------------------- PARTIE DROITE -------------------- */
+/* Colonne droite, divisée en haut/bas */
+.right-panel {
+  flex: 1;             /* largeur moitié de la partie gauche */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;           /* espacement vertical entre carte et spotify */
+}
+
+/* Zone CARTE (en haut à droite) */
+.carte-panel {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px;
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden; /* Ajouté pour contenir le débordement */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Zone SPOTIFY (en bas à droite) */
+.spotify-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

@@ -1,4 +1,4 @@
-// navbar.component.ts
+// src/app/navbar/navbar.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,4 +16,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   ],
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  activeIcon: string = 'home';
+
+  setActive(icon: string): void {
+    this.activeIcon = icon;
+  }
+
+  isActive(icon: string): boolean {
+    return this.activeIcon === icon;
+  }
+}

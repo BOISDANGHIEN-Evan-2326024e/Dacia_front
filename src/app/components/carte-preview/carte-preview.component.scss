@@ -1,9 +1,21 @@
 .carte-preview {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Prend tout l'espace disponible */
   background: #e2e6ea;
-  padding: 1rem;
-  border-radius: 10px;
   color: #495057;
-}
-.carte-preview h2 {
-  margin-bottom: 1rem;
+  padding: 10px; /* Déplacer le padding ici */
+  box-sizing: border-box; /* Inclure padding dans les dimensions */
+  height: 100%; /* Garantir la pleine hauteur */
+  border-radius: 16px; /* Conserver le border-radius */
+
+  h2 {
+    margin: 0 0 10px 0; /* Ajuster la marge du titre */
+  }
+
+  .map-container {
+    flex: 1;
+    border-radius: 10px; /* Arrondir les coins de la carte */
+    overflow: hidden; /* Cacher tout débordement */
+  }
 }

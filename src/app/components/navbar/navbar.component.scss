@@ -1,30 +1,24 @@
-/* navbar.component.scss */
-.navbar {
-  width: 90px;
-  height: 100%;
-  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+/* src/app/navbar/navbar.component.scss */
+:host {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 0 25px 25px 0;
+  width: 90px;
+  height: 100%;
+  background: rgba(15, 20, 30, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 0 20px 20px 0;
   box-shadow:
-    3px 0 15px rgba(0, 0, 0, 0.3),
-    inset -2px 0 4px rgba(255, 255, 255, 0.05);
-  padding: 15px 0;
-  z-index: 100;
+    4px 0 15px rgba(0, 0, 0, 0.4),
+    inset -1px 0 2px rgba(255, 255, 255, 0.08),
+    0 0 0 1px rgba(50, 80, 120, 0.2);
+  padding: 20px 0;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #ff6b00, #ffbb00, #29b6f6, #66ff66);
-  }
+  z-index: 100;
+  border-right: 1px solid rgba(50, 80, 120, 0.3);
+  transition: all 0.3s ease;
 }
 
 .icon-wrapper {
@@ -33,65 +27,116 @@
   align-items: center;
   gap: 38px;
   width: 100%;
+  margin-top: 10px;
 }
 
 .icon {
   position: relative;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 1;
+  overflow: visible;
 
-  &::after {
-    content: '';
+  .icon-bg {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.4s ease;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    background: rgba(40, 60, 100, 0.25);
+    opacity: 0;
+    transition: all 0.3s ease;
     z-index: -1;
   }
 
-  &:hover {
-    transform: translateY(-5px) scale(1.15);
+  .active-indicator {
+    position: absolute;
+    left: -10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: transparent;
+    transition: all 0.3s ease;
+  }
 
-    &::after {
-      width: 70px;
-      height: 70px;
-    }
+  mat-icon {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    color: #8a9bb8;
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+
+  /* Effets au survol */
+  &:hover {
+    transform: translateY(-3px);
 
     mat-icon {
       color: white;
-      text-shadow: 0 0 12px currentColor;
     }
 
-    &.home mat-icon { color: #66bbff; }
-    &.map mat-icon { color: #ff6b6b; }
-    &.music mat-icon { color: #66ff99; }
-    &.gas mat-icon { color: #ffcc66; }
-  }
+    .icon-bg {
+      opacity: 1;
+    }
 
-  mat-icon {
-    font-size: 34px;
-    width: 34px;
-    height: 34px;
-    transition: all 0.3s ease;
-    color: #a0a0a0;
+    &.home mat-icon {
+      color: #66bbff;
+      filter: drop-shadow(0 0 8px rgba(102, 187, 255, 0.5));
+    }
+    &.map mat-icon {
+      color: #ff6b6b;
+      filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.5));
+    }
+    &.music mat-icon {
+      color: #66ff99;
+      filter: drop-shadow(0 0 8px rgba(102, 255, 153, 0.5));
+    }
+    &.gas mat-icon {
+      color: #ffcc66;
+      filter: drop-shadow(0 0 8px rgba(255, 204, 102, 0.5));
+    }
   }
 }
 
-.active {
-  transform: scale(1.2);
+/* Style actif */
+.icon.active {
+  transform: scale(1.05) translateY(-5px);
+
+  .icon-bg {
+    opacity: 1;
+    background: rgba(60, 100, 180, 0.3);
+    box-shadow: 0 0 15px rgba(80, 140, 255, 0.2);
+  }
+
+  .active-indicator {
+    background: currentColor;
+    box-shadow: 0 0 8px currentColor;
+  }
 
   mat-icon {
     color: white !important;
-    filter: drop-shadow(0 0 8px currentColor);
+    transform: scale(1.15);
   }
 
-  &.home mat-icon { color: #4285f4 !important; }
-  &.map mat-icon { color: #ea4335 !important; }
-  &.music mat-icon { color: #1db954 !important; }
-  &.gas mat-icon { color: #fbbc05 !important; }
+  &.home mat-icon {
+    color: #66bbff !important;
+    filter: drop-shadow(0 0 10px rgba(102, 187, 255, 0.7));
+  }
+  &.map mat-icon {
+    color: #ff6b6b !important;
+    filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.7));
+  }
+  &.music mat-icon {
+    color: #66ff99 !important;
+    filter: drop-shadow(0 0 10px rgba(102, 255, 153, 0.7));
+  }
+  &.gas mat-icon {
+    color: #ffcc66 !important;
+    filter: drop-shadow(0 0 10px rgba(255, 204, 102, 0.7));
+  }
 }

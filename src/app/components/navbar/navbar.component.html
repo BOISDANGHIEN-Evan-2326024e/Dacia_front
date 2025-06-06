@@ -1,18 +1,37 @@
-<!-- navbar.component.html -->
-<nav class="navbar">
+<!-- src/app/navbar/navbar.component.html -->
+<nav>
   <div class="icon-wrapper">
-    <button mat-icon-button class="icon" matTooltip="Accueil">
-      <mat-icon class="home">home</mat-icon>
+    <button mat-icon-button class="icon home"
+            [class.active]="isActive('home')"
+            matTooltip="Accueil"
+            (click)="setActive('home')">
+      <div class="icon-bg"></div>
+      <mat-icon>home</mat-icon>
+      <div class="active-indicator"></div>
     </button>
-    <button mat-icon-button class="icon" matTooltip="Cartes">
-      <mat-icon class="map">map</mat-icon>
+    <button mat-icon-button class="icon map"
+            [class.active]="isActive('map')"
+            matTooltip="Cartes"
+            (click)="setActive('map')">
+      <div class="icon-bg"></div>
+      <mat-icon>map</mat-icon>
+      <div class="active-indicator"></div>
     </button>
-    <button mat-icon-button class="icon" matTooltip="Musique">
-      <mat-icon class="music">music_note</mat-icon>
+    <button mat-icon-button class="icon music"
+            [class.active]="isActive('music')"
+            matTooltip="Musique"
+            (click)="setActive('music')">
+      <div class="icon-bg"></div>
+      <mat-icon>music_note</mat-icon>
+      <div class="active-indicator"></div>
     </button>
-    <button mat-icon-button class="icon" matTooltip="Essence">
-      <mat-icon class="gas">local_gas_station</mat-icon>
+    <button mat-icon-button class="icon gas"
+            [class.active]="isActive('gas')"
+            matTooltip="Essence"
+            (click)="setActive('gas')">
+      <div class="icon-bg"></div>
+      <mat-icon>local_gas_station</mat-icon>
+      <div class="active-indicator"></div>
     </button>
   </div>
 </nav>
-
