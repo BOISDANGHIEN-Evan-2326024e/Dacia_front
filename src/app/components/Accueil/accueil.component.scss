@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+.navbar {
+  width: 80px;
+  background: #222;
+}
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
