@@ -1,0 +1,26 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Conteneur principal */
+.container {
+  display: flex;
+  height: 96vh;       /* tout l’écran en vertical */
+  width: 100%;
+}
+
+/* Navbar fixée à gauche */
+.navbar {
+  width: 80px;
+  background: #222;
+  flex-shrink: 0;      /* ne pas rapetisser */
+}
+
+/* Contenu juste à droite de la navbar */
+.main-content {
+  flex: 1;             /* occupe tout l’espace horizontal restant */
+  display: flex;
+  flex-direction: column;
+}

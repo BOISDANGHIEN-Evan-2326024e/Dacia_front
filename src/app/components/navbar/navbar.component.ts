@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,15 +13,23 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   imports: [
     MatIconModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
   ],
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
   activeIcon: string = 'home';
 
+  constructor(private router : Router) {
+  }
+
   setActive(icon: string): void {
     this.activeIcon = icon;
+    if (icon === 'music') {
+      this.router.navigate(['/spotify']);
+    } else if (icon === 'home') {
+      this.router.navigate(['/']);
+    }
   }
 
   isActive(icon: string): boolean {
